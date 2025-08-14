@@ -11,8 +11,9 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 
 // Screens
-import HomeScreen from ".";
+import AnimationScreen from "./animation_screen";
 import ExploreScreen from "./explore";
+import HomeScreen from "./index";
 
 type RootTabParamList = {
   Home: undefined;
@@ -88,7 +89,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Settings"
-          component={HomeScreen} // temporary dummy
+          component={AnimationScreen} // temporary dummy
           options={{
             tabBarIcon: ({ color, size }) => (
               <Icon name="settings" size={size} color={color} />

@@ -1,7 +1,8 @@
+import { CommonStyles } from "@/styles/main-theme";
 import React, { useCallback, useState } from "react";
 import { FlatList, RefreshControl, StyleSheet, Text, View } from "react-native";
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}: any) {
   const [data, setData] = useState(["Apple", "Banana", "Cherry"]);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -17,6 +18,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <Text style={CommonStyles.title}>Welcome User!</Text>
       <FlatList
         data={data}
         keyExtractor={(item, index) => index.toString()}
@@ -35,6 +37,7 @@ export default function HomeScreen() {
           />
         }
       />
+
     </View>
   );
 }
