@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { FlatList, RefreshControl, StyleSheet, Text, View } from "react-native";
 
-export default function HomeScreen() {
+export default function Settings() {
   const [data, setData] = useState(["Apple", "Banana", "Cherry"]);
   const [refreshing, setRefreshing] = useState(false);
 
