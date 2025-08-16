@@ -20,11 +20,13 @@ type RootTabParamList = {
   QR: undefined;
   Explore: undefined;
   Settings: undefined;
+  Details: undefined;
 };
 
 type DrawerParamList = {
   HomeTabs: undefined;
   Settings: undefined;
+  Details: undefined;
 };
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
@@ -96,6 +98,15 @@ export default function App() {
             ),
           }}
         />
+              <Tab.Screen
+          name="Details"
+          component={AnimationScreen} // temporary dummy
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Icon name="settings" size={size} color={color} />
+            ),
+          }}
+        />
       </Tab.Navigator>
     );
   }
@@ -140,7 +151,11 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <Drawer.Navigator initialRouteName="HomeTabs">
+      <Drawer.Navigator initialRouteName="HomeTabs"
+      //global config
+      screenOptions={{
+        headerTitleAlign: "center",
+      }}>
         <Drawer.Screen
           name="HomeTabs"
           component={BottomTab}

@@ -1,6 +1,7 @@
+import CardContainer from "@/components/screens/home-screen/CardContainer";
 import { CommonStyles } from "@/styles/main-theme";
 import React, { useCallback, useState } from "react";
-import { FlatList, RefreshControl, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen({navigation}: any) {
   const [data, setData] = useState(["Apple", "Banana", "Cherry"]);
@@ -17,9 +18,20 @@ export default function HomeScreen({navigation}: any) {
   }, []);
 
   return (
+    <ScrollView>
     <View style={styles.container}>
-      <Text style={CommonStyles.title}>Welcome User!</Text>
-      <FlatList
+      <Text style={CommonStyles.title}>{"< August 2025 >"}</Text>
+      <Text style={CommonStyles.title}>How is your day?</Text>
+      {/* <SearchBar placeholder="find anything..."   containerStyle={{ backgroundColor: 'transparent', borderTopWidth: 0, borderBottomWidth: 0,}} platform="android"
+  inputContainerStyle={{ backgroundColor: '#eee' }}></SearchBar> */}
+  {/* <HomeSearchBar></HomeSearchBar> */}
+  <CardContainer title="Card Title"></CardContainer>
+  <CardContainer title="Card Title"></CardContainer>
+  <CardContainer title="Card Title"></CardContainer>
+  <CardContainer title="Card Title"></CardContainer>
+  <CardContainer title="Card Title"></CardContainer>
+  <CardContainer title="Card Title"></CardContainer>
+      {/* <FlatList
         data={data}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
@@ -36,9 +48,9 @@ export default function HomeScreen({navigation}: any) {
             title="Pull to refresh"
           />
         }
-      />
-
+      /> */}
     </View>
+    </ScrollView>
   );
 }
 
