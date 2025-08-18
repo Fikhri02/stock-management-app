@@ -11,6 +11,7 @@ import {
 import Icon from "react-native-vector-icons/Ionicons";
 
 // Screens
+import { AntDesign } from "@expo/vector-icons";
 import AnimationScreen from "./animation_screen";
 import ExploreScreen from "./explore";
 import HomeScreen from "./index";
@@ -21,6 +22,7 @@ type RootTabParamList = {
   Explore: undefined;
   Settings: undefined;
   Details: undefined;
+  Profile: undefined;
 };
 
 type DrawerParamList = {
@@ -98,15 +100,16 @@ export default function App() {
             ),
           }}
         />
-              <Tab.Screen
-          name="Details"
+        <Tab.Screen
+          name="Profile"
           component={AnimationScreen} // temporary dummy
           options={{
             tabBarIcon: ({ color, size }) => (
-              <Icon name="settings" size={size} color={color} />
+              <AntDesign name="profile" size={size} color={color} />
             ),
           }}
         />
+
       </Tab.Navigator>
     );
   }

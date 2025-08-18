@@ -1,7 +1,9 @@
 import CardContainer from "@/components/screens/home-screen/CardContainer";
+import DailyMoneyTracker from '@/components/screens/home-screen/DailyMoneyTracker';
 import { CommonStyles } from "@/styles/main-theme";
 import React, { useCallback, useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+
 
 export default function HomeScreen({navigation}: any) {
   const [data, setData] = useState(["Apple", "Banana", "Cherry"]);
@@ -22,6 +24,7 @@ export default function HomeScreen({navigation}: any) {
     <View style={styles.container}>
       <Text style={CommonStyles.title}>{"< August 2025 >"}</Text>
       <Text style={CommonStyles.title}>How is your day?</Text>
+      <DailyMoneyTracker></DailyMoneyTracker>
       {/* <SearchBar placeholder="find anything..."   containerStyle={{ backgroundColor: 'transparent', borderTopWidth: 0, borderBottomWidth: 0,}} platform="android"
   inputContainerStyle={{ backgroundColor: '#eee' }}></SearchBar> */}
   {/* <HomeSearchBar></HomeSearchBar> */}
