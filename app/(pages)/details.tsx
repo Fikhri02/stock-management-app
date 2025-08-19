@@ -16,6 +16,7 @@ import {
   View,
 } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
+// import { Icon } from "react-native-vector-icons/Icon";
 
 const { width } = Dimensions.get("window");
 
@@ -33,6 +34,12 @@ export default function DetailsScreen() {
       headerShown: false, // completely hides the header
     });
   }, [navigation]);
+
+  const [rating, setRating] = useState(0);
+
+  const handlePress = (value: any) => {
+    setRating(value);
+  };
 
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
@@ -206,12 +213,31 @@ export default function DetailsScreen() {
             <TextInput
               style={styles.textInput}
               placeholder="Type something..."
-              placeholderTextColor={DarkColors.primary}
+              placeholderTextColor={DarkColors.text}
               value={text}
               onChangeText={setText}
             />
           </View>
           {/* <MoneyTrackingList></MoneyTrackingList> */}
+        </View>
+        <View style={styles.ratingBox}>
+          {Array.from({ length: 5 /* Max rating */ }, (_, index) => {
+            const starValue = index + 1;
+            return (
+              <TouchableOpacity
+                key={index}
+                onPress={() => handlePress(starValue)}
+              >
+                <Ionicons
+                  name={starValue <= rating ? "star" : "star-outline"}
+                  color={DarkColors.primary}
+                  size={32}
+                  // color={starValue <= rating ? "#FFD700" : "#808080"}
+                  style={{ marginHorizontal: 4 }}
+                />
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </ScrollView>
     </View>
@@ -319,17 +345,27 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start", // 👈 aligns children at the top
     alignItems: "flex-start",
     flexDirection: "column",
-    paddingVertical: 40,
-    backgroundColor: DarkColors.red,
+    paddingVertical: 0,
+    height: 130,
+    backgroundColor: DarkColors.secondary,
     margin: 0,
     borderRadius: 5,
   },
   textInput: {
     fontSize: 20,
     lineHeight: 20,
-    backgroundColor: DarkColors.primary,
+    // backgroundColor: DarkColors.primary,
     // textDecorationColor: DarkColors.text,
     color: DarkColors.text,
+  },
+  ratingBox: {
+    padding: 16,
+    backgroundColor: DarkColors.secondary,
+    margin: 10,
+    borderRadius: 5,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
   },
 });
 

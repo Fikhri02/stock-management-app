@@ -1,11 +1,11 @@
 import CardContainer from "@/components/screens/home-screen/CardContainer";
-import DailyMoneyTracker from '@/components/screens/home-screen/DailyMoneyTracker';
-import { CommonStyles } from "@/styles/main-theme";
+import DailyMoneyTracker from "@/components/screens/home-screen/DailyMoneyTracker";
+import MonthPicker from "@/components/screens/home-screen/MonthPicker";
+import { DarkColors } from "@/styles/main-theme";
 import React, { useCallback, useState } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 
-
-export default function HomeScreen({navigation}: any) {
+export default function HomeScreen({ navigation }: any) {
   const [data, setData] = useState(["Apple", "Banana", "Cherry"]);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -21,20 +21,17 @@ export default function HomeScreen({navigation}: any) {
 
   return (
     <ScrollView>
-    <View style={styles.container}>
-      <Text style={CommonStyles.title}>{"< August 2025 >"}</Text>
-      <Text style={CommonStyles.title}>How is your day?</Text>
-      <DailyMoneyTracker></DailyMoneyTracker>
-      {/* <SearchBar placeholder="find anything..."   containerStyle={{ backgroundColor: 'transparent', borderTopWidth: 0, borderBottomWidth: 0,}} platform="android"
+      <View style={styles.container}>
+        <View style={styles.monthPickerBox}>
+          <MonthPicker></MonthPicker>
+        </View>
+        {/* <Text style={CommonStyles.title}>How is your day?</Text> */}
+        <DailyMoneyTracker></DailyMoneyTracker>
+        {/* <SearchBar placeholder="find anything..."   containerStyle={{ backgroundColor: 'transparent', borderTopWidth: 0, borderBottomWidth: 0,}} platform="android"
   inputContainerStyle={{ backgroundColor: '#eee' }}></SearchBar> */}
-  {/* <HomeSearchBar></HomeSearchBar> */}
-  <CardContainer title="Card Title"></CardContainer>
-  <CardContainer title="Card Title"></CardContainer>
-  <CardContainer title="Card Title"></CardContainer>
-  <CardContainer title="Card Title"></CardContainer>
-  <CardContainer title="Card Title"></CardContainer>
-  <CardContainer title="Card Title"></CardContainer>
-      {/* <FlatList
+        {/* <HomeSearchBar></HomeSearchBar> */}
+        <CardContainer title="Card Title"></CardContainer>
+        {/* <FlatList
         data={data}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
@@ -52,18 +49,26 @@ export default function HomeScreen({navigation}: any) {
           />
         }
       /> */}
-    </View>
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, paddingTop: 50 },
+  container: {
+    flex: 1,
+    paddingTop: 50,
+    // justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: DarkColors.background,
+    width: "100%",
+  },
   item: {
     padding: 20,
     borderBottomWidth: 1,
     borderBottomColor: "#2196F3",
-    color: "white",
+    color: DarkColors.primary,
   },
   itemText: { color: "white", fontSize: 16, textAlign: "center" },
+  monthPickerBox: { width: "50%", color: "white" },
 });

@@ -1,3 +1,4 @@
+import { DarkColors } from "@/styles/main-theme";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
@@ -11,12 +12,12 @@ export default function SpendingTracker() {
     <View style={styles.container}>
       <AnimatedCircularProgress
         size={200}
-        width={15}
+        width={5}
         fill={fill}
-        tintColor="green"
-        backgroundColor="#fff"
+        tintColor={DarkColors.primary}
+        backgroundColor={DarkColors.secondary}
         rotation={0} // start from top
-        lineCap="round"
+        lineCap="square"
       >
         {() => (
           <View style={styles.innerCircle}>
@@ -34,20 +35,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "black",
+    margin: 10,
   },
   innerCircle: {
-    justifyContent: "center",
+    width: 190, // slightly smaller than outer size (200)
+    height: 190,
+    borderRadius: 80, // half of width/height → makes it a circle
+    backgroundColor: DarkColors.secondary, // 👈 set your desired color
     alignItems: "center",
+    justifyContent: "center",
   },
   amount: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#fff",
+    color: DarkColors.primary,
   },
   label: {
     fontSize: 16,
-    color: "#fff",
+    color: DarkColors.primary,
     marginTop: 4,
   },
 });

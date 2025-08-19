@@ -12,13 +12,14 @@ export const CommonStyles = StyleSheet.create({
 
 // src/constants/theme.ts
 export const DarkColors = {
+  // primary: "white",
   primary: "#05cfbe",
   secondary: "#1e1e1e",
   background: "#030303",
   text: "#ffffff",
   red: "#d42f31",
   gold: "#f79120",
-  aqua: "#05cfbe",
+  aqua: "#B8F6F2",
   subtitle: "#767676",
 };
 
@@ -29,7 +30,7 @@ export const LightColors = {
   text: "#ffffff",
   red: "#d42f31",
   gold: "#f79120",
-  aqua: "#05cfbe",
+  aqua: "#E6FCFB",
   subtitle: "#767676",
 };
 

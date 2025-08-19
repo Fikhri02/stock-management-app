@@ -1,48 +1,61 @@
+import { DarkColors } from "@/styles/main-theme";
 import { useRouter } from "expo-router";
 import React, { ReactNode } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface CardContainerProps {
-  imageUrl?: string;     // optional image URL
-  title?: string;        // optional title
-  children?: ReactNode;  // content inside card
+  imageUrl?: string; // optional image URL
+  title?: string; // optional title
+  children?: ReactNode; // content inside card
 }
 
-export default function CardContainer({ imageUrl, title, children }: CardContainerProps) {
-    const router = useRouter();
-
+export default function CardContainer({
+  imageUrl,
+  title,
+  children,
+}: CardContainerProps) {
+  const router = useRouter();
 
   return (
     <TouchableOpacity
-    onPress={() => router.push("/(pages)/details")}
-    style={{ padding: 20, backgroundColor: "black", margin: 10 }}
-  >
+      onPress={() => router.push("/(pages)/details")}
+      style={{
+        padding: 30,
+        // backgroundColor: "white",
+        margin: 10,
+        width: "100%",
+        alignContent: "center",
+        justifyContent: "center",
+      }}
+    >
       <View style={styles.card}>
-      {/* Image Box */}
-      <View style={styles.imageBox}>
-        {imageUrl ? (
-          <Image source={{ uri: imageUrl }} style={styles.image} />
-        ) : (
-          <View style={styles.imagePlaceholder}>
-            <Text style={{ color: "#aaa" }}>No Image</Text>
-          </View>
-        )}
+        {/* Image Box */}
+        <View style={styles.imageBox}>
+          {imageUrl ? (
+            <Image source={{ uri: imageUrl }} style={styles.image} />
+          ) : (
+            <View style={styles.imagePlaceholder}>
+              <Text style={{ color: "#aaa" }}>No Image</Text>
+            </View>
+          )}
+        </View>
+
+        {/* Title */}
+        {title && <Text style={styles.title}>{title}</Text>}
+
+        {/* Content */}
+        <View style={styles.content}>{children}</View>
+        <View style={styles.content}>
+          <Text style={styles.contentText}>A day to remember</Text>
+        </View>
       </View>
-
-      {/* Title */}
-      {title && <Text style={styles.title}>{title}</Text>}
-
-      {/* Content */}
-      <View style={styles.content}>{children}</View>
-      <View style={styles.content}><Text style={styles.contentText}>A day to remember</Text></View>
-    </View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: DarkColors.secondary,
     padding: 15,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -52,6 +65,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 3,
+    width: "100%",
   },
   imageBox: {
     width: "100%",
@@ -76,13 +90,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 8,
     textAlign: "center",
+    color: DarkColors.primary,
   },
   content: {
     flexDirection: "row",
     alignItems: "center",
+    color: DarkColors.primary,
   },
   contentText: {
     marginBottom: 8,
     textAlign: "center",
+    color: DarkColors.primary,
   },
 });
