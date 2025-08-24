@@ -72,30 +72,33 @@ export default function MonthPicker({ value, onChange }: Props) {
 
   return (
     <>
+      {/* <View style={styles.pickerContainer}> */}
       {/* Header:  < August 2025 >  */}
-      <View style={styles.header}>
-        <Pressable onPress={() => go(-1)} hitSlop={12}>
-          {/* <Text style={styles.arrow}>&lt;</Text> */}
-          <Ionicons
-            name="caret-back"
-            size={24}
-            color={DarkColors.primary}
-          ></Ionicons>
-        </Pressable>
+      <View style={styles.pickerContainer}>
+        <View style={styles.header}>
+          <Pressable onPress={() => go(-1)} hitSlop={12}>
+            {/* <Text style={styles.arrow}>&lt;</Text> */}
+            <Ionicons
+              name="caret-back"
+              size={24}
+              color={DarkColors.primary}
+            ></Ionicons>
+          </Pressable>
 
-        <View style={styles.labelBox}>
-          <Pressable onPress={openPicker} hitSlop={12}>
-            <Text style={styles.label}>{label}</Text>
+          <View style={styles.labelBox}>
+            <Pressable onPress={openPicker} hitSlop={12}>
+              <Text style={styles.label}>{label}</Text>
+            </Pressable>
+          </View>
+          <Pressable onPress={() => go(1)} hitSlop={12}>
+            {/* <Text style={styles.arrow}>&gt;</Text> */}
+            <Ionicons
+              name="caret-forward"
+              size={24}
+              color={DarkColors.primary}
+            ></Ionicons>
           </Pressable>
         </View>
-        <Pressable onPress={() => go(1)} hitSlop={12}>
-          {/* <Text style={styles.arrow}>&gt;</Text> */}
-          <Ionicons
-            name="caret-forward"
-            size={24}
-            color={DarkColors.primary}
-          ></Ionicons>
-        </Pressable>
       </View>
 
       {/* Modal month “calendar” */}
@@ -166,13 +169,20 @@ export default function MonthPicker({ value, onChange }: Props) {
 }
 
 const styles = StyleSheet.create({
+  pickerContainer: {
+    backgroundColor: DarkColors.secondary,
+    width: "100%",
+  },
   header: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: 16,
-    paddingVertical: 8,
+    paddingVertical: 18,
+    // width: "50%",
+    color: "white",
   },
+
   label: {
     fontSize: 18,
     fontWeight: "600",

@@ -22,17 +22,17 @@ export default function CardContainer({
     <TouchableOpacity
       onPress={() => router.push("/(pages)/details")}
       style={{
-        padding: 30,
+        // padding: 30,
         // backgroundColor: "white",
         margin: 10,
-        width: "100%",
+        // width: "100%",
         alignContent: "center",
         justifyContent: "center",
       }}
     >
       <View style={styles.card}>
         <View style={styles.cardHeader}>
-          <Text style={styles.cardHeaderTitle}>Header</Text>
+          <Text style={styles.cardHeaderTitle}>Monday, 15 August</Text>
         </View>
         {/* Title */}
         {title && <Text style={styles.title}>{title}</Text>}
@@ -60,15 +60,13 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: DarkColors.secondary,
     paddingBottom: 15,
-    marginVertical: 8,
-    marginHorizontal: 16,
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 3,
-    width: "100%",
+    width: "300",
   },
   cardHeader: {
     backgroundColor: DarkColors.primary,

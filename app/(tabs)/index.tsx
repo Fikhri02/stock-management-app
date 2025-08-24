@@ -20,16 +20,19 @@ export default function HomeScreen({ navigation }: any) {
   }, []);
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.monthPickerBox}>
-          <MonthPicker></MonthPicker>
-        </View>
+    <View style={styles.container}>
+      <View style={styles.monthPickerBox}>
+        <MonthPicker></MonthPicker>
+      </View>
+      <ScrollView>
         {/* <Text style={CommonStyles.title}>How is your day?</Text> */}
         <DailyMoneyTracker></DailyMoneyTracker>
         {/* <SearchBar placeholder="find anything..."   containerStyle={{ backgroundColor: 'transparent', borderTopWidth: 0, borderBottomWidth: 0,}} platform="android"
   inputContainerStyle={{ backgroundColor: '#eee' }}></SearchBar> */}
         {/* <HomeSearchBar></HomeSearchBar> */}
+        <CardContainer title="Card Title"></CardContainer>
+        <CardContainer title="Card Title"></CardContainer>
+        <CardContainer title="Card Title"></CardContainer>
         <CardContainer title="Card Title"></CardContainer>
         {/* <FlatList
         data={data}
@@ -49,15 +52,15 @@ export default function HomeScreen({ navigation }: any) {
           />
         }
       /> */}
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 0,
     // justifyContent: "center",
     alignItems: "center",
     backgroundColor: DarkColors.background,
@@ -70,5 +73,5 @@ const styles = StyleSheet.create({
     color: DarkColors.primary,
   },
   itemText: { color: "white", fontSize: 16, textAlign: "center" },
-  monthPickerBox: { width: "50%", color: "white" },
+  monthPickerBox: { width: "50%", color: "white", paddingVertical: 10 },
 });
